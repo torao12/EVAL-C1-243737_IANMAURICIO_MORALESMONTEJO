@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #2F4156;
+  --teal: #567C8D;
+  --skyblue: #C8D9E6;
+  --beige: #F5EFEB;
+  --white: #FFFFFF;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-skyblue: var(--skyblue);
+  --color-beige: var(--beige);
+  --color-white: var(--white);
+}
+
+body {
+  background-color: var(--beige) !important;
+  color: var(--navy) !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border: 2px solid var(--navy);
+}
+
+th {
+  background-color: var(--navy);
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid var(--skyblue);
+}
