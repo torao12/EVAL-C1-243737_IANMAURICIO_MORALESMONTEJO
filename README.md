@@ -8,7 +8,7 @@ Este proyecto implementa una solución para el control de indicadores escolares 
 Para obtener una copia local del proyecto, ejecute el siguiente comando en su terminal:
 
 ```bash
-git clone [https://github.com/tu-usuario/tu-proyecto.git](https://github.com/tu-usuario/tu-proyecto.git)
+git clone https://github.com/torao12/EVAL-C1-243737_IANMAURICIO_MORALESMONTEJO
 cd tu-proyecto
 
 ### Pasos de Configuración y Despliegue 

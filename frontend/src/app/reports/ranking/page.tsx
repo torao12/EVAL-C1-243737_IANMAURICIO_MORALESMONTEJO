@@ -4,7 +4,6 @@ export default async function RankingPage({ searchParams }: { searchParams: Prom
   const params = await searchParams;
   const program = params.program || 'Sistemas';
 
-  // Tu SQL define: student_name, program, term, final_grade, position
   const { rows } = await query(
     `SELECT * FROM vw_rank_students WHERE program = $1 ORDER BY position ASC`,
     [program]

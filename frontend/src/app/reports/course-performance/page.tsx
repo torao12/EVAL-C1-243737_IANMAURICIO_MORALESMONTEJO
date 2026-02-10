@@ -21,7 +21,6 @@ export default async function CoursePerformancePage({
     );
   }
 
-  // Ejecución de la query
   const { rows } = await query(
     `SELECT * FROM vw_course_performance WHERE term = $1`, 
     [term]
@@ -41,7 +40,6 @@ export default async function CoursePerformancePage({
         <tbody>
           {rows.map((r: any, i: number) => (
             <tr key={i} className="border-b">
-              {/* IMPORTANTE: Usar los nombres exactos de tu SQL */}
               <td className="p-2 border">{r.course_name}</td>
               <td className="p-2 border text-center">{r.average_grade}</td>
               <td className="p-2 border text-center text-red-600">{r.failed_students}</td>
