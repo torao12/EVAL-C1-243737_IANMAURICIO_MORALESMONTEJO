@@ -30,7 +30,37 @@ INSERT INTO students (name, email, program) VALUES
 ('Raúl Silva', 'r.silva@outlook.com', 'Mecatrónica'),
 ('Julia León', 'j.leon@gmail.com', 'Derecho'),
 ('Bruno Díaz', 'b.diaz@campus.edu', 'Sistemas'),
-('Diana Prince', 'd.prince@outlook.com', 'Derecho');
+('Diana Prince', 'd.prince@outlook.com', 'Derecho'),
+('Peter Parker', 'p.parker@dailybugle.com', 'Sistemas'),
+('Clark Kent', 'c.kent@dailyplanet.com', 'Derecho'),
+('Bruce Wayne', 'b.wayne@wayne.ent', 'Mecatrónica'),
+('Selina Kyle', 's.kyle@cat.com', 'Historia'),
+('Barry Allen', 'b.allen@starlabs.com', 'Sistemas'),
+('Hal Jordan', 'h.jordan@ferris.com', 'Mecatrónica'),
+('Arthur Curry', 'a.curry@atlantis.gov', 'Historia'),
+('Victor Stone', 'v.stone@cyborg.tech', 'Sistemas'),
+('Wanda Maximoff', 'w.maximoff@avengers.org', 'Derecho'),
+('Steve Rogers', 's.rogers@shield.gov', 'Historia'),
+('Natasha Romanoff', 'n.romanoff@blackwidow.com', 'Derecho'),
+('Tony Stark', 't.stark@stark.ind', 'Mecatrónica'),
+('Sam Wilson', 's.wilson@falcon.gov', 'Historia'),
+('Bucky Barnes', 'b.barnes@winter.com', 'Sistemas'),
+('Clint Barton', 'c.barton@hawkeye.com', 'Mecatrónica'),
+('Scott Lang', 's.lang@antman.com', 'Sistemas'),
+('Hope Pym', 'h.pym@wasp.com', 'Mecatrónica'),
+('Carol Danvers', 'c.danvers@marvel.com', 'Sistemas'),
+('TChalla Udaku', 't.challa@wakanda.af', 'Mecatrónica'),
+('Shuri Udaku', 's.shuri@wakanda.af', 'Sistemas'),
+('Thor Odinson', 't.thor@asgard.com', 'Historia'),
+('Loki Laufeyson', 'l.loki@asgard.com', 'Derecho'),
+('Erik Lehnsherr', 'e.magneto@xmen.com', 'Mecatrónica'),
+('Charles Xavier', 'c.xavier@xmen.com', 'Derecho'),
+('Jean Grey', 'j.grey@phoenix.com', 'Sistemas'),
+('Logan Howlett', 'l.logan@wolverine.ca', 'Historia'),
+('Ororo Munroe', 'o.storm@weather.com', 'Mecatrónica'),
+('Scott Summers', 's.cyclops@xmen.com', 'Sistemas'),
+('Remy LeBeau', 'r.gambit@cajun.com', 'Historia'),
+('Anna Marie', 'a.rogue@xmen.com', 'Derecho');
 
 INSERT INTO courses (name, credits) VALUES
 ('Bases de Datos I', 5),
@@ -50,21 +80,27 @@ INSERT INTO groups (course_id, teacher_id, term) VALUES
 (7, 2, '2024-1'), (8, 10, '2024-2');
 
 INSERT INTO enrollments (student_id, group_id) 
-SELECT id, 1 FROM students WHERE id <= 10;
+SELECT id, 1 FROM students WHERE id <= 25;
 
 INSERT INTO enrollments (student_id, group_id) 
-SELECT id, 3 FROM students WHERE id BETWEEN 5 AND 15;
+SELECT id, 3 FROM students WHERE id BETWEEN 26 AND 50;
 
 INSERT INTO grades (enrollment_id, partial1, partial2, final_grade) 
-SELECT id, (RANDOM() * 10), (RANDOM() * 10), (RANDOM() * 5 + 5) FROM enrollments; 
+SELECT id, 
+       (RANDOM() * 10), 
+       (RANDOM() * 10), 
+       (RANDOM() * 5 + 4)
+FROM enrollments; 
 
-UPDATE grades SET final_grade = 5.2 WHERE enrollment_id IN (1, 5, 12);
+UPDATE grades SET final_grade = 5.2 WHERE enrollment_id IN (1, 5, 12, 18, 22, 30, 35, 42);
 
 INSERT INTO attendance (enrollment_id, date, present)
-SELECT id, '2024-03-01', (RANDOM() > 0.2) FROM enrollments;
-INSERT INTO attendance (enrollment_id, date, present)
-SELECT id, '2024-03-02', (RANDOM() > 0.2) FROM enrollments;
-INSERT INTO attendance (enrollment_id, date, present)
-SELECT id, '2024-03-03', (RANDOM() > 0.2) FROM enrollments;
+SELECT id, '2024-03-01', (RANDOM() > 0.15) FROM enrollments;
 
-UPDATE attendance SET present = FALSE WHERE enrollment_id = 8;
+INSERT INTO attendance (enrollment_id, date, present)
+SELECT id, '2024-03-02', (RANDOM() > 0.20) FROM enrollments;
+
+INSERT INTO attendance (enrollment_id, date, present)
+SELECT id, '2024-03-03', (RANDOM() > 0.10) FROM enrollments;
+
+UPDATE attendance SET present = FALSE WHERE enrollment_id IN (8, 15, 27, 33, 48);
